@@ -3,16 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Seth Painting Co. | Brevard County, FL</title>
+  <title>Seth Co — Fuller Finishes | Brevard County, FL</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --red:       #C51F28;
       --red-dark:  #97151C;
+      --blue:      #2E40C0;
+      --blue-dark: #1E2D90;
       --black:     #111111;
       --charcoal:  #1E1E1E;
       --grey:      #3A3A3A;
@@ -69,7 +72,8 @@
       position: sticky;
       top: 0;
       z-index: 200;
-      background: var(--black);
+      background: var(--white);
+      border-bottom: 1px solid var(--light);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -81,7 +85,7 @@
       display: flex;
       align-items: center;
       gap: 11px;
-      color: var(--white);
+      color: var(--black);
     }
 
     .logo-mark {
@@ -115,6 +119,22 @@
       text-transform: uppercase;
     }
 
+    .logo-img {
+      height: 50px;
+      width: auto;
+      display: block;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+
+    .footer-logo-img {
+      height: 60px;
+      width: auto;
+      display: block;
+      border-radius: 6px;
+      margin-bottom: 16px;
+    }
+
     .nav-links {
       display: flex;
       list-style: none;
@@ -123,14 +143,14 @@
     }
 
     .nav-links a {
-      color: rgba(255,255,255,.7);
+      color: var(--grey);
       font-size: .88rem;
       font-weight: 500;
       letter-spacing: .03em;
       transition: color .2s;
     }
 
-    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover { color: var(--black); }
 
     .nav-phone {
       display: flex;
@@ -139,7 +159,7 @@
     }
 
     .nav-tel {
-      color: var(--white);
+      color: var(--charcoal);
       font-weight: 600;
       font-size: .9rem;
       letter-spacing: .02em;
@@ -165,6 +185,23 @@
 
     .btn-red:hover { background: var(--red-dark); }
 
+    .btn-nextdoor {
+      background: #00B347;
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      padding: 10px 22px;
+      border: none;
+      cursor: pointer;
+      transition: background .2s;
+      display: inline-block;
+    }
+
+    .btn-nextdoor:hover { background: #009a3d; }
+
     .btn-outline-white {
       background: transparent;
       color: var(--white);
@@ -184,9 +221,9 @@
 
     /* ── HERO ── */
     .hero {
-      background: var(--black);
+      background: linear-gradient(rgba(0,0,0,.52), rgba(0,0,0,.52)), url('images/unnamed-2.jpg') center 30% / cover no-repeat;
       color: var(--white);
-      padding: 0 5%;
+      padding: 0;
       min-height: 540px;
       display: flex;
       align-items: stretch;
@@ -194,15 +231,15 @@
       overflow: hidden;
     }
 
-    /* diagonal red slash */
+    /* diagonal slash — red-to-blue gradient matching logo */
     .hero::before {
       content: '';
       position: absolute;
       top: 0; right: 0;
-      width: 44%;
+      width: 30%;
       height: 100%;
-      background: var(--red);
-      clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%);
+      background: linear-gradient(168deg, var(--red) 0%, var(--blue) 100%);
+      clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
     }
 
     .hero-inner {
@@ -210,14 +247,12 @@
       align-items: center;
       gap: 0;
       width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
       position: relative;
       z-index: 1;
       padding: 80px 0;
     }
 
-    .hero-text { flex: 1; padding-right: 5%; }
+    .hero-text { flex: 1; padding: 0 3% 0 5%; }
 
     .hero-eyebrow {
       font-family: 'Barlow', sans-serif;
@@ -225,7 +260,7 @@
       font-weight: 600;
       letter-spacing: .16em;
       text-transform: uppercase;
-      color: var(--red);
+      color: var(--white);
       margin-bottom: 16px;
       display: flex;
       align-items: center;
@@ -236,7 +271,7 @@
       content: '';
       width: 32px;
       height: 2px;
-      background: var(--red);
+      background: var(--white);
       flex-shrink: 0;
     }
 
@@ -260,12 +295,12 @@
     .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
 
     .hero-panel {
-      width: 36%;
+      width: 30%;
       flex-shrink: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-left: 8%;
+      padding: 0 5% 0 10%;
     }
 
     .hero-panel-label {
@@ -310,7 +345,7 @@
     .stats-bar {
       background: var(--charcoal);
       display: flex;
-      border-bottom: 3px solid var(--red);
+      border-bottom: 3px solid var(--blue);
     }
 
     .stat-cell {
@@ -453,6 +488,28 @@
       line-height: 1.65;
     }
 
+    .svc-price {
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--red);
+      letter-spacing: .03em;
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--light);
+      display: flex;
+      align-items: baseline;
+      gap: 5px;
+    }
+
+    .svc-price-label {
+      font-weight: 500;
+      color: var(--mid);
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      flex-shrink: 0;
+    }
+
     /* ── PROCESS ── */
     #process {
       background: var(--black);
@@ -506,7 +563,7 @@
     .step-num {
       width: 56px;
       height: 56px;
-      background: var(--red);
+      background: var(--blue);
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 900;
       font-size: 1.5rem;
@@ -550,24 +607,14 @@
       overflow: hidden;
     }
 
-    .about-img-bg {
+    .about-photo {
       position: absolute;
       inset: 0;
-      background: repeating-linear-gradient(
-        -45deg,
-        rgba(197,31,40,.04) 0px,
-        rgba(197,31,40,.04) 2px,
-        transparent 2px,
-        transparent 20px
-      );
-    }
-
-    .about-placeholder-icon {
-      font-size: 6rem;
-      opacity: .12;
-      position: relative;
-      z-index: 1;
-      user-select: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
     }
 
     .about-badge {
@@ -632,6 +679,7 @@
       flex-shrink: 0;
       margin-top: 2px;
       font-size: 1rem;
+      color: var(--red);
     }
 
     .hl-text strong {
@@ -907,12 +955,13 @@
     .c-icon {
       width: 42px;
       height: 42px;
-      background: rgba(197,31,40,.2);
-      border: 1px solid rgba(197,31,40,.35);
+      background: rgba(46,64,192,.22);
+      border: 1px solid rgba(46,64,192,.38);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.1rem;
+      color: var(--white);
       flex-shrink: 0;
     }
 
@@ -1093,6 +1142,209 @@
       color: rgba(255,255,255,.35);
     }
 
+    /* ── GALLERY ── */
+    #gallery {
+      background: var(--black);
+      padding: 80px 0 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #gallery::before {
+      content: 'PORTFOLIO';
+      position: absolute;
+      right: -30px;
+      top: 36px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9rem;
+      font-weight: 900;
+      color: rgba(255,255,255,.022);
+      letter-spacing: .08em;
+      pointer-events: none;
+      white-space: nowrap;
+      text-transform: uppercase;
+    }
+
+    .gallery-header {
+      padding: 0 5% 52px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .gallery-header .section-tag { color: rgba(255,255,255,.4); }
+    .gallery-header .section-tag::before { background: rgba(255,255,255,.25); }
+
+    .gallery-filters {
+      display: flex;
+      gap: 8px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,.18);
+      color: rgba(255,255,255,.45);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      padding: 9px 24px;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .filter-btn:hover {
+      border-color: rgba(255,255,255,.5);
+      color: rgba(255,255,255,.8);
+    }
+
+    .filter-btn.active {
+      background: var(--red);
+      border-color: var(--red);
+      color: var(--white);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 260px;
+      grid-auto-flow: dense;
+      gap: 4px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      cursor: zoom-in;
+      background: var(--charcoal);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .55s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.07); }
+
+    .gi-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.15) 55%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px 22px;
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+
+    .gallery-item:hover .gi-overlay { opacity: 1; }
+
+    .gi-cat {
+      font-family: 'Barlow', sans-serif;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .gi-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      color: var(--white);
+      line-height: 1.1;
+      display: block;
+    }
+
+    .gallery-item.gi-tall { grid-row: span 2; }
+    .gallery-item.gi-wide { grid-column: span 2; }
+    .gallery-item.hidden { display: none; }
+
+    .gallery-cta {
+      padding: 52px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,.07);
+      margin-top: 4px;
+    }
+
+    .gallery-cta p {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      color: var(--white);
+      margin: 0;
+    }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.93);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      cursor: zoom-out;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox-img {
+      max-width: min(92vw, 1100px);
+      max-height: 86vh;
+      object-fit: contain;
+      display: block;
+      box-shadow: 0 32px 100px rgba(0,0,0,.8);
+      cursor: default;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 18px;
+      right: 26px;
+      color: rgba(255,255,255,.6);
+      font-size: 3rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+      transition: color .2s;
+      z-index: 1001;
+    }
+
+    .lightbox-close:hover { color: var(--red); }
+
+    .lightbox-caption {
+      position: absolute;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,.45);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .82rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
     /* ── MOBILE NAV ── */
     .nav-hamburger {
       display: none;
@@ -1111,7 +1363,7 @@
       display: block;
       width: 22px;
       height: 2px;
-      background: var(--white);
+      background: var(--charcoal);
       border-radius: 1px;
       transition: transform .25s, opacity .2s;
     }
@@ -1162,9 +1414,11 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
+      .hero { padding: 0 5%; }
       .hero::before { display: none; }
       .hero-inner { flex-direction: column; gap: 40px; }
-      .hero-panel { width: 100%; padding-left: 0; }
+      .hero-text { padding-left: 0; padding-right: 0; }
+      .hero-panel { width: 100%; padding-left: 0; padding-right: 0; }
       .services-layout { grid-template-columns: 1fr; gap: 40px; }
       .process-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
       .process-steps::before { display: none; }
@@ -1178,6 +1432,9 @@
       .footer-top > *:first-child { grid-column: span 2; }
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 220px; }
+      .gi-wide { grid-column: span 2; }
+      .gallery-cta { flex-direction: column; align-items: flex-start; }
     }
 
     @media (max-width: 600px) {
@@ -1190,13 +1447,16 @@
       .footer-top { grid-template-columns: 1fr; }
       .footer-top > *:first-child { grid-column: span 1; }
       .f-row { grid-template-columns: 1fr; }
+      .f-addr-row { grid-template-columns: 1fr !important; }
       .guarantee { flex-direction: column; align-items: flex-start; }
       .nav-tel { display: none; }
+      .gallery-grid { grid-auto-rows: 185px; }
     }
 
     @media (max-width: 480px) {
       .announce { font-size: .76rem; padding: 8px 4%; }
       nav { padding: 0 4%; }
+      .hero { padding: 0 4%; }
       .hero-inner { padding: 48px 0; }
       .hero h1 { font-size: 2.6rem; }
       #services { padding: 56px 4%; }
@@ -1211,6 +1471,401 @@
       .stat-cell { flex: 0 0 100%; }
       .process-step { padding-right: 0; }
       .nav-cta-btn { display: none; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
+      .gallery-item.gi-wide { grid-column: span 2; }
+      #gallery { padding-top: 56px; }
+      .gallery-header { padding-bottom: 36px; }
+    }
+
+    /* ── FAQ ── */
+    #faq {
+      background: var(--off-white);
+      padding: 80px 5%;
+    }
+
+    .faq-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .faq-header { margin-bottom: 48px; }
+
+    .faq-list {
+      border: 1px solid var(--light);
+      background: var(--white);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--light);
+      position: relative;
+    }
+
+    .faq-item:last-child { border-bottom: none; }
+
+    .faq-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0;
+      width: 3px;
+      height: 0;
+      background: var(--red);
+      transition: height .3s;
+    }
+
+    .faq-item.open::before { height: 100%; }
+
+    .faq-q {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 28px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--black);
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      transition: color .2s;
+    }
+
+    .faq-q:hover { color: var(--red); }
+    .faq-item.open .faq-q { color: var(--red); }
+
+    .faq-icon {
+      flex-shrink: 0;
+      font-size: .8rem;
+      color: var(--red);
+      transition: transform .3s;
+    }
+
+    .faq-item.open .faq-icon { transform: rotate(180deg); }
+
+    .faq-a {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height .35s ease;
+    }
+
+    .faq-item.open .faq-a { max-height: 400px; }
+
+    .faq-a p {
+      padding: 0 28px 24px 28px;
+      font-size: .95rem;
+      color: var(--grey);
+      line-height: 1.85;
+      margin: 0;
+    }
+
+    @media (max-width: 480px) {
+      #faq { padding: 56px 4%; }
+      .faq-q { padding: 18px 20px; font-size: 1.05rem; }
+      .faq-a p { padding: 0 20px 20px; }
+    }
+
+    /* ── CONTACT PERSON CARDS ── */
+    .contact-persons {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .contact-person-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-left: 3px solid var(--red);
+      padding: 22px 22px 20px;
+    }
+
+    .contact-person-card.lizzy-card {
+      border-left-color: var(--blue);
+    }
+
+    .cp-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
+
+    .cp-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: .03em;
+      line-height: 1;
+    }
+
+    .cp-role {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-top: 5px;
+    }
+
+    .cp-badge {
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .cp-badge-direct {
+      background: rgba(197,31,40,.25);
+      color: #ff9ea3;
+      border: 1px solid rgba(197,31,40,.4);
+    }
+
+    .cp-badge-general {
+      background: rgba(46,64,192,.25);
+      color: #9aaeff;
+      border: 1px solid rgba(46,64,192,.4);
+    }
+
+    .cp-desc {
+      font-size: .85rem;
+      color: rgba(255,255,255,.48);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    .cp-contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .cp-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--white);
+      transition: color .2s;
+    }
+
+    .cp-link:hover { color: var(--red); }
+
+    /* ── FOOTER CONTACT ── */
+    .footer-contact {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-contact-person {
+      font-size: .83rem;
+      line-height: 1.75;
+    }
+
+    .footer-contact-person strong { color: rgba(255,255,255,.75); }
+
+    .footer-contact-person a {
+      color: rgba(255,255,255,.45);
+      transition: color .2s;
+    }
+
+    .footer-contact-person a:hover { color: var(--red); }
+
+    /* ── FAMILY SPOTLIGHT ── */
+    #family {
+      background: var(--black);
+      padding: 80px 5%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #family::after {
+      content: 'FAMILY';
+      position: absolute;
+      right: -20px;
+      bottom: 10px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10rem;
+      font-weight: 900;
+      color: rgba(255,255,255,.022);
+      letter-spacing: .05em;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .family-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .family-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .family-eyebrow {
+      font-family: 'Barlow', sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.38);
+      margin-bottom: 14px;
+    }
+
+    .family-intro {
+      font-size: .97rem;
+      color: rgba(255,255,255,.55);
+      line-height: 1.85;
+      max-width: 680px;
+      margin: 14px auto 0;
+    }
+
+    .family-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 52px;
+    }
+
+    .family-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      padding: 36px 32px 30px;
+      position: relative;
+    }
+
+    .fc-top-bar {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 3px;
+    }
+
+    .fc-top-bar.red  { background: var(--red); }
+    .fc-top-bar.blue { background: var(--blue); }
+
+    .fc-icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      margin-bottom: 20px;
+    }
+
+    .fc-icon.red  { background: rgba(197,31,40,.2);  border: 1px solid rgba(197,31,40,.35);  color: #ff9ea3; }
+    .fc-icon.blue { background: rgba(46,64,192,.2);  border: 1px solid rgba(46,64,192,.35);  color: #9aaeff; }
+
+    .fc-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: .03em;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
+    .fc-title {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+
+    .fc-bio {
+      font-size: .91rem;
+      color: rgba(255,255,255,.55);
+      line-height: 1.82;
+      margin-bottom: 24px;
+    }
+
+    .fc-traits {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .fc-trait {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: .67rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.38);
+      border: 1px solid rgba(255,255,255,.1);
+      padding: 4px 9px;
+    }
+
+    .fc-trait i { font-size: .6rem; opacity: .75; }
+
+    .family-scripture {
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding-top: 52px;
+      text-align: center;
+    }
+
+    .scripture-quote-mark {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 5.5rem;
+      font-weight: 900;
+      line-height: .65;
+      color: var(--red);
+      opacity: .2;
+      margin-bottom: 16px;
+      user-select: none;
+    }
+
+    .family-scripture blockquote {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.35rem, 2.5vw, 2rem);
+      font-weight: 700;
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.45;
+      max-width: 720px;
+      margin: 0 auto 14px;
+      letter-spacing: .01em;
+    }
+
+    .family-scripture cite {
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.3);
+      font-style: normal;
+    }
+
+    @media (max-width: 900px) {
+      .family-cards { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      #family { padding: 56px 4%; }
+      .family-header { margin-bottom: 36px; }
+      .family-card { padding: 28px 20px 24px; }
     }
   </style>
 </head>
@@ -1224,17 +1879,7 @@
 <!-- NAV -->
 <nav>
   <a class="logo" href="#">
-    <div class="logo-mark">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M3 17l4-12 3 8 3-5 4 9" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="19" cy="16" r="3" fill="none" stroke="white" stroke-width="1.8"/>
-        <path d="M19 19v3" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <div class="logo-text">
-      Seth Painting Co.
-      <small>Brevard County, FL</small>
-    </div>
+    <img src="images/Image.png" alt="Seth Co — Fuller Finishes" class="logo-img" />
   </a>
 
   <ul class="nav-links">
@@ -1242,11 +1887,14 @@
     <li><a href="#process">Our Process</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#area">Service Area</a></li>
+    <li><a href="#gallery">Gallery</a></li>
     <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 
   <div class="nav-phone">
-    <a class="nav-tel" href="tel:+13215550100">(321) 555-0100</a>
+    <a class="nav-tel" href="tel:+13219146336">(321) 914-6336</a>
     <a class="btn-red nav-cta-btn" href="#contact">Free Quote</a>
     <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -1259,32 +1907,34 @@
   <a href="#process">Our Process</a>
   <a href="#about">About</a>
   <a href="#area">Service Area</a>
+  <a href="#gallery">Gallery</a>
   <a href="#testimonials">Reviews</a>
-  <a href="tel:+13215550100">&#128222;&nbsp; (321) 555-0100</a>
-  <a href="#contact" class="mobile-nav-cta">Get a Free Quote &#8594;</a>
+  <a href="tel:+13219146336"><i class="fa-solid fa-phone"></i>&nbsp; (321) 914-6336 &mdash; Lizzy</a>
+  <a href="tel:+13045793226"><i class="fa-solid fa-phone"></i>&nbsp; (304) 579-3226 &mdash; Seth</a>
+  <a href="#contact" class="mobile-nav-cta">Free Quote &amp; Contact &#8594;</a>
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-text">
-      <div class="hero-eyebrow">Brevard County's #1 Painting Contractor</div>
+      <div class="hero-eyebrow">Seth Co — Fuller Finishes | Brevard County, FL</div>
       <h1>WE PAINT.<br><span class="accent">YOU LOVE IT.</span><br>GUARANTEED.</h1>
-      <p class="hero-sub">From Melbourne to Titusville, Seth Painting Co. delivers clean, precise, long-lasting paint jobs for homeowners and businesses across Brevard County — on time, every time.</p>
+      <p class="hero-sub">From Melbourne to Titusville, Seth Co delivers clean, precise, long-lasting paint jobs for homeowners and businesses across Brevard County — on time, every time.</p>
       <div class="hero-btns">
         <a class="btn-red" href="#contact">Get a Free Estimate</a>
-        <a class="btn-outline-white" href="tel:+13215550100">&#128222;&nbsp; (321) 555-0100</a>
+        <a class="btn-outline-white" href="tel:+13219146336"><i class="fa-solid fa-phone"></i>&nbsp; (321) 914-6336</a>
       </div>
     </div>
     <div class="hero-panel">
       <div class="hero-panel-label">What's included</div>
       <ul class="hero-checklist">
-        <li>Interior &amp; Exterior Painting</li>
-        <li>Pressure Washing &amp; Surface Prep</li>
-        <li>Commercial &amp; Residential</li>
-        <li>Deck, Fence &amp; Cabinet Work</li>
-        <li>Free Written Estimate</li>
-        <li>100% Satisfaction Guarantee</li>
+        <li>Interior &amp; Exterior Painting &amp; Staining</li>
+        <li>Pressure Washing &amp; Stucco Work</li>
+        <li>Mold Abatement &amp; Ceiling Removal</li>
+        <li>Commercial &amp; Plaza Repaints</li>
+        <li>Full Renovations &amp; Handyman</li>
+        <li>Free Written Estimate — No Obligation</li>
       </ul>
     </div>
   </div>
@@ -1301,7 +1951,7 @@
     <span class="stat-label">Projects Done</span>
   </div>
   <div class="stat-cell">
-    <span class="stat-num">5&#9733;</span>
+    <span class="stat-num">5<i class="fa-solid fa-star" style="font-size:.7em;vertical-align:middle;"></i></span>
     <span class="stat-label">Average Rating</span>
   </div>
   <div class="stat-cell">
@@ -1319,40 +1969,96 @@
   <div class="services-layout">
     <div class="services-intro">
       <div class="section-tag">What We Do</div>
-      <h2 class="section-heading">Professional Painting Services</h2>
-      <p class="section-body">From a single room refresh to a full commercial repaint, we show up prepared, work clean, and finish strong. Every job gets the same level of care.</p>
-      <a class="btn-red" href="#contact" style="margin-top:28px;display:inline-block;">Request a Quote</a>
+      <h2 class="section-heading">14 Services. One Crew. Zero Compromises.</h2>
+      <p class="section-body">From precision interior repaints to roof coatings and water damage restoration, Seth and his crew cover everything your property needs — inside and out.</p>
+      <p class="section-body" style="margin-top:12px;"><strong style="color:var(--black);">Premium products only:</strong> Sherwin-Williams (Duration, Emerald, Latitude), Benjamin Moore, Behr, Richards — heavy acrylics, epoxies, urethanes, and quality wood stains.</p>
+      <p class="section-body" style="margin-top:12px;font-size:.83rem;">Prices shown are typical Brevard County averages. Every job is quoted on-site — fill out the form for your free written estimate.</p>
+      <a class="btn-red" href="#contact" style="margin-top:28px;display:inline-block;">Request a Free Quote</a>
     </div>
     <div class="service-row services-list">
       <div class="service-item">
         <div class="svc-num">01</div>
-        <h3>Interior Painting</h3>
-        <p>Clean cuts, even coverage, zero mess left behind. We protect your furniture and floors and leave every room looking sharp.</p>
+        <h3>Exterior Painting</h3>
+        <p>Florida sun, salt air, and humidity demand tough coatings. We prep every surface and apply premium elastomeric and acrylic paints built to endure the coastal climate for years.</p>
+        <div class="svc-price"><span class="svc-price-label">Avg.</span> $2,500 – $6,500+</div>
       </div>
       <div class="service-item">
         <div class="svc-num">02</div>
-        <h3>Exterior Painting</h3>
-        <p>Florida's sun, heat, and humidity are brutal on paint. We use premium weather-resistant coatings that hold their color and adhesion for years.</p>
+        <h3>Interior Painting</h3>
+        <p>Detail-focused work from single rooms to full-home repaints. Clean cuts, even coverage, zero mess — using Sherwin-Williams Emerald and Benjamin Moore for a flawless finish every time.</p>
+        <div class="svc-price"><span class="svc-price-label">Avg.</span> $200 – $500 / room &nbsp;|&nbsp; $1,500 – $5,000 whole home</div>
       </div>
       <div class="service-item">
         <div class="svc-num">03</div>
-        <h3>Commercial Painting</h3>
-        <p>We work around your schedule — nights, weekends, phased rollouts — to keep your business running while we refresh the space.</p>
+        <h3>Cabinet Painting</h3>
+        <p>Transform your kitchen or bathroom without the cost of a full remodel. We prep, prime, and apply a durable factory-smooth finish that holds up to daily use and looks brand new.</p>
+        <div class="svc-price"><span class="svc-price-label">Avg.</span> $600 – $2,500</div>
       </div>
       <div class="service-item">
         <div class="svc-num">04</div>
-        <h3>Pressure Washing</h3>
-        <p>Proper prep is the foundation of a lasting paint job. Our soft- and high-pressure washing removes mold, salt, and chalking before we ever open a can.</p>
+        <h3>Deck Painting</h3>
+        <p>Restore and protect your outdoor deck with a durable coat engineered to handle Florida's UV, heat, and moisture. We prep, repair, and finish for a result that lasts season after season.</p>
+        <div class="svc-price"><span class="svc-price-label">Avg.</span> $500 – $2,000</div>
       </div>
       <div class="service-item">
         <div class="svc-num">05</div>
-        <h3>Deck &amp; Fence Staining</h3>
-        <p>Renew your outdoor wood with quality penetrating stain and sealant. Protects against moisture, UV, and Brevard County's coastal air.</p>
+        <h3>Door Painting</h3>
+        <p>First impressions matter. We refinish interior and exterior doors — entry, French, garage, and more — with a clean, precise coat that stands up to daily wear and Florida's elements.</p>
+        <div class="svc-price"><span class="svc-price-label">Avg.</span> $75 – $300 / door</div>
       </div>
       <div class="service-item">
         <div class="svc-num">06</div>
-        <h3>Cabinet Refinishing</h3>
-        <p>A smooth, durable factory-like finish on your existing cabinets — for a fraction of the cost of replacement. Kitchen or bath.</p>
+        <h3>Drywall Painting</h3>
+        <p>Smooth, consistent coverage on any drywall surface — new construction, remodels, or fresh repairs. We prime properly and apply paint for an even, lasting finish with no roller marks or thin spots.</p>
+        <div class="svc-price"><span class="svc-price-label">Avg.</span> $1.50 – $3.00 / sq ft</div>
+      </div>
+      <div class="service-item">
+        <div class="svc-num">07</div>
+        <h3>Drywall Repair</h3>
+        <p>Cracks, holes, water stains — we patch, skim coat, sand, and finish damaged drywall until it's completely seamless and paint-ready. No visible repairs, no shortcuts, no ugly patching.</p>
+        <div class="svc-price"><span class="svc-price-label">Avg.</span> $150 – $900+</div>
+      </div>
+      <div class="service-item">
+        <div class="svc-num">08</div>
+        <h3>Metal Painting</h3>
+        <p>Fences, railings, gates, and structural metal get the full treatment — rust removal, proper priming, and a durable topcoat that resists corrosion in Florida's humid, salty environment.</p>
+        <div class="svc-price"><span class="svc-price-label">Avg.</span> $300 – $1,500</div>
+      </div>
+      <div class="service-item">
+        <div class="svc-num">09</div>
+        <h3>Roof Painting</h3>
+        <p>Extend your roof's life and cut cooling costs with a reflective elastomeric coating. We clean, seal, and coat to protect against UV damage and water intrusion — all in one professional application.</p>
+        <div class="svc-price"><span class="svc-price-label">Avg.</span> $2,000 – $4,500</div>
+      </div>
+      <div class="service-item">
+        <div class="svc-num">10</div>
+        <h3>Siding Painting</h3>
+        <p>Wood, vinyl, fiber cement, or composite — we prep and paint your siding for lasting protection and curb appeal that turns heads. Proper surface prep included so the finish bonds and holds.</p>
+        <div class="svc-price"><span class="svc-price-label">Avg.</span> $1,500 – $5,000</div>
+      </div>
+      <div class="service-item">
+        <div class="svc-num">11</div>
+        <h3>Wallpaper Removal</h3>
+        <p>We safely strip old wallpaper, repair the underlying surface, and leave your walls smooth and ready for a fresh coat — all without damaging the drywall beneath or leaving residue behind.</p>
+        <div class="svc-price"><span class="svc-price-label">Avg.</span> $250 – $900 / room</div>
+      </div>
+      <div class="service-item">
+        <div class="svc-num">12</div>
+        <h3>Water Damage Repair</h3>
+        <p>We identify, treat, and restore surfaces hit by water damage — patching affected areas, priming with stain-blocking sealers, and repainting for a clean finish that actually lasts.</p>
+        <div class="svc-price"><span class="svc-price-label">Avg.</span> $400 – $2,000+</div>
+      </div>
+      <div class="service-item">
+        <div class="svc-num">13</div>
+        <h3>Wood Painting</h3>
+        <p>Trim, soffits, fascia, fences, and more — we prep wood surfaces right, filling grain and priming before applying a durable finish that protects against rot, UV damage, and Florida's humidity.</p>
+        <div class="svc-price"><span class="svc-price-label">Avg.</span> $1.50 – $3.00 / sq ft</div>
+      </div>
+      <div class="service-item">
+        <div class="svc-num">14</div>
+        <h3>Wood Staining</h3>
+        <p>Bring out the natural beauty of any wood surface with a professional-grade stain. We prep, sand, and apply the right product for your wood type — decks, fences, pergolas, and more.</p>
+        <div class="svc-price"><span class="svc-price-label">Avg.</span> $400 – $1,800</div>
       </div>
     </div>
   </div>
@@ -1389,8 +2095,7 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="about-img">
-    <div class="about-img-bg"></div>
-    <div class="about-placeholder-icon">🎨</div>
+    <img src="images/unnamed.jpg" alt="Seth at a completed exterior repaint in Brevard County" class="about-photo" />
     <div class="about-badge">
       <small>Locally Owned &amp; Operated</small>
       Brevard County, FL
@@ -1399,38 +2104,89 @@
   <div class="about-content">
     <div class="section-tag">About Us</div>
     <h2 class="section-heading">Built on Hard Work &amp; Honest Craftsmanship</h2>
-    <p class="section-body">Seth Painting Co. was founded right here in Brevard County on a straightforward idea: show up on time, do the work right, and don't leave until the customer is happy.</p>
+    <p class="section-body">Seth Co was founded right here in Brevard County on a straightforward idea: show up on time, do the work right, and don't leave until the customer is happy.</p>
     <p class="section-body" style="margin-top:12px;">We're not a franchise or a big-box contractor operation. We're a local crew that takes pride in our work and cares about our reputation in this community.</p>
     <div class="about-highlights">
       <div class="highlight-row">
-        <div class="hl-icon">&#128272;</div>
+        <div class="hl-icon"><i class="fa-solid fa-shield-halved"></i></div>
         <div class="hl-text">
           <strong>Licensed &amp; Fully Insured</strong>
           <span>Full general liability and workers' comp — your home is protected.</span>
         </div>
       </div>
       <div class="highlight-row">
-        <div class="hl-icon">&#127775;</div>
+        <div class="hl-icon"><i class="fa-solid fa-award"></i></div>
         <div class="hl-text">
-          <strong>Premium Paint Brands</strong>
-          <span>We use Sherwin-Williams, Benjamin Moore, and other top-rated products.</span>
+          <strong>Premium Products Only</strong>
+          <span>Sherwin-Williams (Duration, Emerald, Latitude), Benjamin Moore, Behr, Richards — plus heavy acrylics, epoxies, urethanes, and wood stains.</span>
         </div>
       </div>
       <div class="highlight-row">
-        <div class="hl-icon">&#128338;</div>
+        <div class="hl-icon"><i class="fa-regular fa-clock"></i></div>
         <div class="hl-text">
           <strong>On Time, Every Time</strong>
           <span>We show up when we say we will and finish on schedule.</span>
         </div>
       </div>
       <div class="highlight-row">
-        <div class="hl-icon">&#9989;</div>
+        <div class="hl-icon"><i class="fa-solid fa-user-shield"></i></div>
         <div class="hl-text">
           <strong>Background-Checked Crew</strong>
           <span>Every team member is vetted — you can trust who's in your home.</span>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- FAMILY SPOTLIGHT -->
+<section id="family">
+  <div class="family-inner">
+
+    <div class="family-header">
+      <div class="family-eyebrow">The People Behind the Paint</div>
+      <h2 class="section-heading light">Built on Faith.<br>Driven by Family.</h2>
+      <p class="family-intro">Seth Co — Fuller Finishes isn't just a painting company. It's a family mission rooted in faith, fueled by purpose, and committed to doing right by every single client. What Seth and Lizzy pour into this work goes far beyond paint and brushes — it's a calling.</p>
+    </div>
+
+    <div class="family-cards">
+
+      <div class="family-card">
+        <div class="fc-top-bar red"></div>
+        <div class="fc-icon red"><i class="fa-solid fa-paint-roller"></i></div>
+        <div class="fc-name">Seth Fuller</div>
+        <div class="fc-title">Owner &amp; Lead Painter &mdash; Husband &amp; Father</div>
+        <p class="fc-bio">Seth built this company from the ground up with steady hands, a strong back, and a faith-driven work ethic that simply doesn't quit. He shows up every single day — early, focused, and ready — because he believes that work done with integrity is work done for something far greater than a paycheck. As a husband and father, everything he builds here is a direct reflection of who he is as a man. No shortcuts. No excuses. Just honest craftsmanship delivered with pride, from someone who genuinely cares about the result.</p>
+        <div class="fc-traits">
+          <span class="fc-trait"><i class="fa-solid fa-cross"></i> Faith First</span>
+          <span class="fc-trait"><i class="fa-solid fa-house"></i> Family Man</span>
+          <span class="fc-trait"><i class="fa-solid fa-hammer"></i> Hands-On</span>
+          <span class="fc-trait"><i class="fa-solid fa-shield-halved"></i> No Compromises</span>
+        </div>
+      </div>
+
+      <div class="family-card">
+        <div class="fc-top-bar blue"></div>
+        <div class="fc-icon blue"><i class="fa-solid fa-heart"></i></div>
+        <div class="fc-name">Lizzy Fuller</div>
+        <div class="fc-title">Co-Owner &amp; Operations &mdash; Wife &amp; Partner</div>
+        <p class="fc-bio">Behind every great craftsman is a partner who holds the whole thing together with grace, patience, and relentless care — and Lizzy is exactly that. She manages everything off the jobsite: client calls, scheduling, follow-ups, and making sure every person who reaches out to Seth Co feels heard and taken care of. She's not just support staff — she's the backbone that lets Seth give his full attention to the work on the other end. Together they're a team, a family, and the reason this business runs the way it does.</p>
+        <div class="fc-traits">
+          <span class="fc-trait"><i class="fa-solid fa-cross"></i> Faith First</span>
+          <span class="fc-trait"><i class="fa-solid fa-house"></i> Family First</span>
+          <span class="fc-trait"><i class="fa-solid fa-phone"></i> Client-Focused</span>
+          <span class="fc-trait"><i class="fa-solid fa-star"></i> Heart of the Team</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="family-scripture">
+      <div class="scripture-quote-mark">"</div>
+      <blockquote>Whatever you do, work at it with all your heart, as working for the Lord, not for human masters.</blockquote>
+      <cite>Colossians 3:23</cite>
+    </div>
+
   </div>
 </section>
 
@@ -1441,9 +2197,9 @@
     <p>Every project we take on is backed by our full satisfaction guarantee. If you're not completely happy with the finished result, we come back and make it right — at no additional charge, no questions asked.</p>
   </div>
   <div class="guarantee-seal">
-    <span class="seal-top">Seth Painting</span>
+    <span class="seal-top">Seth Co</span>
     <span class="seal-main">100%<br>Satisfaction<br>Guaranteed</span>
-    <span class="seal-bot">Brevard County, FL</span>
+    <span class="seal-bot">Fuller Finishes</span>
   </div>
 </div>
 
@@ -1468,11 +2224,11 @@
         <div class="city-item">Cape Canaveral</div>
         <div class="city-item">Satellite Beach</div>
       </div>
-      <div class="area-note">&#128205; Don't see your city? We likely still cover it. Call us at <strong>(321) 555-0100</strong> and we'll confirm same day.</div>
+      <div class="area-note"><i class="fa-solid fa-location-dot"></i> Don't see your city? We likely still cover it. Call Lizzy at <strong>(321) 914-6336</strong> and we'll confirm same day.</div>
     </div>
     <div class="area-map">
       <div class="area-map-placeholder">
-        <span class="map-icon">&#128205;</span>
+        <span class="map-icon"><i class="fa-solid fa-location-dot"></i></span>
         <p>Brevard County, Florida</p>
       </div>
     </div>
@@ -1488,14 +2244,14 @@
     </div>
     <div class="overall-rating">
       <span class="rating-num">5.0</span>
-      <span class="rating-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span class="rating-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
       <span class="rating-count">Based on 80+ reviews</span>
     </div>
   </div>
   <div class="testimonials-grid">
     <div class="testimonial-card">
       <div class="t-quote">"</div>
-      <div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="t-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
       <p class="t-text">Seth and his team do outstanding work. Great communication, professional crew, attention to detail, and the finished work came out beautiful. They showed up when they said they would, kept everything clean and organized, and made the whole process easy from start to finish. It can be hard to find contractors who genuinely care about quality, but Seth absolutely does. Highly recommend Seth Co Painting to anyone in Brevard county looking for a trustworthy painting company.</p>
       <div class="t-author">Scott Marsh</div>
       <div class="t-location">Brevard County, FL</div>
@@ -1503,7 +2259,7 @@
     </div>
     <div class="testimonial-card">
       <div class="t-quote">"</div>
-      <div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="t-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
       <p class="t-text">Seth was great. He painted several of the properties we manage and I have to say I was very impressed with the quality of his job and painting knowledge. He was on time, responsive, and was able to discuss different options available for the different types of jobs we had. He's done interior and exterior painting for us, as well as doors, ceilings, and even once we had him repair baseboards and window sills damaged by a dog. Highly recommend him.</p>
       <div class="t-author">Patricia Lorenzo</div>
       <div class="t-location">Brevard County, FL</div>
@@ -1511,15 +2267,179 @@
     </div>
     <div class="testimonial-card">
       <div class="t-quote">"</div>
-      <div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="t-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
       <p class="t-text">If you are looking for a painter that is dependable with excellent skills, then Seth is your man! He has a strong work ethic and is definitely someone you should hire if you need a paint job inside or out. We are so happy with the job he did for us. We highly recommend him.</p>
       <div class="t-author">Cut Sheppard</div>
       <div class="t-location">Brevard County, FL</div>
       <div class="t-accent"></div>
     </div>
   </div>
-  <div style="text-align:center;margin-top:36px;">
-    <a href="https://share.google/FpCkPpnrXpRXMHaDo" target="_blank" rel="noopener" class="btn-red" style="display:inline-block;">View All Google Reviews &#8594;</a>
+  <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:36px;">
+    <a href="https://www.google.com/search?client=safari&hs=As7p&sca_esv=cd9fb29036fc7180&hl=en-us&biw=390&bih=699&q=seth+co+painting+indialantic+reviews&uds=AJ5uw1-q59MiRzBaAcbWdRLSB49hjhRR8v5_dyHd5MlYc3duh8wt5m2S1EGGaRmzRfSI2Kze_0AMHdvQQOrbwLTlOPaG93zZMGIazZTpY2-ICNejV2JqNL_UVE_8htuoScx95x5yYY3b7O9q82zVdR_Ai_dvdcUG7NuYObSHTMYfTdAhX3GbkjsppXMo5STeLVFk8i_JOReQ9frLWLW3DzWIKcyq2hgcIw5QbPo-gUZsQyYe5TBTyGi4ABpZEuJYOGzJoNP_VZcAcYt-_7o78dvPBoEvGbs4ZVEOlxSx0_Vz02y6TAachXGcY20qzM5sOM4EL0JqqzofNH9PFPKKqPWMPOHUhsYt3mW90vSpZLYreJ6_3ceEt7XMzNhqqDl1NYWZRabA74mw3kYCGEKn4AuoZrd5FbPt9iz2NX4oEg5w13CZHs-Q0xL1yTF3WbIUqVNdSn83wPu9Ioi3xT3tQnnHGk4vvRowP4_o6MU0ZeWuIsDZQYFUXaSn595PxHGu2OCx08ysK4qp&si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-_1d-0PgnUDgLi4loMTq8VONhMhF_EJqRHf3g5rLFTo3P5wjHtp76H2a2k6d-4IQUGSebv_uBpAUJZBIiLXR6hYBAIhWQ3-mBGdd5O16B8sA0ENXT5Q%3D%3D&sa=X&ved=2ahUKEwjwvJ6K6JuVAxWL4ckDHS7ICyEQk8gLegQIGhAB&ictx=1" target="_blank" rel="noopener" class="btn-red"><i class="fa-brands fa-google"></i>&nbsp; View Google Reviews &#8594;</a>
+    <a href="https://nextdoor.com/pages/seth-co-fuller-finishes-indialantic-fl/" target="_blank" rel="noopener" class="btn-nextdoor"><i class="fa-solid fa-house"></i>&nbsp; Find Us on Nextdoor &#8594;</a>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-header">
+    <div class="section-tag">Our Work</div>
+    <h2 class="section-heading light">Results That Speak for Themselves</h2>
+    <p style="color:rgba(255,255,255,.5);font-size:.93rem;max-width:500px;line-height:1.8;margin-top:12px;">Every photo in this gallery is real work completed by Seth and his crew right here in Brevard County. No stock photos — just results.</p>
+    <div class="gallery-filters">
+      <button class="filter-btn active" data-filter="all">All Work</button>
+      <button class="filter-btn" data-filter="exterior">Exterior</button>
+      <button class="filter-btn" data-filter="interior">Interior</button>
+      <button class="filter-btn" data-filter="detail">Detail Work</button>
+      <button class="filter-btn" data-filter="wood">Decks &amp; Wood</button>
+    </div>
+  </div>
+  <div class="gallery-grid" id="galleryGrid">
+    <!-- T1 -->
+    <div class="gallery-item gi-tall" data-cat="detail" data-title="Front Door — Deep Red Finish">
+      <img src="images/unnamed-4.jpg" alt="Front door painted deep red" loading="lazy" />
+      <div class="gi-overlay"><span class="gi-cat">Detail Work</span><span class="gi-name">Front Door Refinish</span></div>
+    </div>
+    <!-- R1 -->
+    <div class="gallery-item" data-cat="exterior" data-title="Two-Story Stucco Exterior">
+      <img src="images/unnamed-6.jpg" alt="Two-story Florida home exterior repaint" loading="lazy" />
+      <div class="gi-overlay"><span class="gi-cat">Exterior</span><span class="gi-name">Two-Story Stucco Home</span></div>
+    </div>
+    <!-- T2 -->
+    <div class="gallery-item gi-tall" data-cat="detail" data-title="Double Front Doors — Bold Blue">
+      <img src="images/unnamed-7.jpg" alt="Blue double front doors" loading="lazy" />
+      <div class="gi-overlay"><span class="gi-cat">Detail Work</span><span class="gi-name">Double Door Repaint</span></div>
+    </div>
+    <!-- T3 -->
+    <div class="gallery-item gi-tall" data-cat="exterior" data-title="Seth on the Job — Exterior Surface Prep">
+      <img src="images/IMG_2113.jpeg" alt="Seth spraying exterior stucco wall on a job site" loading="lazy" />
+      <div class="gi-overlay"><span class="gi-cat">Exterior</span><span class="gi-name">Seth on the Job</span></div>
+    </div>
+    <!-- R2 -->
+    <div class="gallery-item" data-cat="exterior" data-title="Stucco Home Exterior Repaint">
+      <img src="images/unnamed-3.jpg" alt="Florida stucco home exterior" loading="lazy" />
+      <div class="gi-overlay"><span class="gi-cat">Exterior</span><span class="gi-name">Stucco Exterior Repaint</span></div>
+    </div>
+    <!-- R3 -->
+    <div class="gallery-item" data-cat="interior" data-title="Interior Repaint — Hallway &amp; Entry">
+      <img src="images/unnamed-9.jpg" alt="Clean interior hallway with fresh paint" loading="lazy" />
+      <div class="gi-overlay"><span class="gi-cat">Interior</span><span class="gi-name">Interior Repaint</span></div>
+    </div>
+    <!-- T4 -->
+    <div class="gallery-item gi-tall" data-cat="interior" data-title="Cabinet Refinishing — White Finish">
+      <img src="images/unnamed-8.jpg" alt="White cabinet refinishing in progress" loading="lazy" />
+      <div class="gi-overlay"><span class="gi-cat">Interior</span><span class="gi-name">Cabinet Refinishing</span></div>
+    </div>
+    <!-- T5 -->
+    <div class="gallery-item gi-tall" data-cat="wood" data-title="Deck Stain &amp; Seal">
+      <img src="images/unnamed-5.jpg" alt="Freshly stained and sealed wood deck" loading="lazy" />
+      <div class="gi-overlay"><span class="gi-cat">Decks &amp; Wood</span><span class="gi-name">Deck Stain &amp; Seal</span></div>
+    </div>
+    <!-- R4 -->
+    <div class="gallery-item" data-cat="exterior" data-title="Commercial Exterior Repaint">
+      <img src="images/unnamed.png" alt="Modern commercial building exterior" loading="lazy" style="object-position: center 40%;" />
+      <div class="gi-overlay"><span class="gi-cat">Exterior</span><span class="gi-name">Commercial Repaint</span></div>
+    </div>
+    <!-- R5 -->
+    <div class="gallery-item" data-cat="exterior" data-title="Garage &amp; Outbuilding Exterior">
+      <img src="images/IMG_2108.JPG" alt="Red garage with teal door exterior repaint" loading="lazy" />
+      <div class="gi-overlay"><span class="gi-cat">Exterior</span><span class="gi-name">Garage &amp; Outbuilding</span></div>
+    </div>
+    <!-- W6 -->
+    <div class="gallery-item gi-wide" data-cat="exterior" data-title="Full Exterior Repaint — White Stucco Home">
+      <img src="images/IMG_2112.jpeg" alt="Freshly painted white stucco home with garage and concrete driveway" loading="lazy" />
+      <div class="gi-overlay"><span class="gi-cat">Exterior</span><span class="gi-name">Full Exterior Repaint — White Stucco</span></div>
+    </div>
+    <!-- R6 -->
+    <div class="gallery-item" data-cat="exterior" data-title="Pool Deck &amp; Exterior Repaint">
+      <img src="images/IMG_2114.jpeg" alt="White stucco exterior and pool deck repaint" loading="lazy" />
+      <div class="gi-overlay"><span class="gi-cat">Exterior</span><span class="gi-name">Pool Deck &amp; Exterior Repaint</span></div>
+    </div>
+  </div>
+  <div class="gallery-cta">
+    <p>Like what you see? Let's talk about your project.</p>
+    <a href="#contact" class="btn-red">Get a Free Estimate &#8594;</a>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-inner">
+    <div class="faq-header">
+      <div class="section-tag">FAQ</div>
+      <h2 class="section-heading">Common Questions</h2>
+      <p class="section-body" style="margin-top:12px;">Everything you need to know before getting started. Still have a question? Reach out to Seth or Lizzy directly.</p>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Do you offer free estimates?
+          <i class="fa-solid fa-chevron-down faq-icon"></i>
+        </button>
+        <div class="faq-a">
+          <p>Yes — every job starts with a free, no-obligation written estimate. Seth or a crew member will come out to your property, assess the project in detail, and hand you a clear itemized quote. No vague ballparks, no hidden fees, no pressure to commit.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Are you licensed and insured?
+          <i class="fa-solid fa-chevron-down faq-icon"></i>
+        </button>
+        <div class="faq-a">
+          <p>Absolutely. Seth Co carries full general liability insurance and workers' compensation coverage on every job. Your home, your property, and everyone on-site is fully protected. We're happy to provide proof of insurance before any work begins — just ask.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          What paint brands and products do you use?
+          <i class="fa-solid fa-chevron-down faq-icon"></i>
+        </button>
+        <div class="faq-a">
+          <p>We use premium products only — Sherwin-Williams (Duration, Emerald, Latitude), Benjamin Moore, Behr, and Richards. Depending on the surface and job type we also work with heavy acrylics, elastomerics, epoxies, urethanes, and professional-grade wood stains. We never cut corners with cheap paint — the right product for the right surface, every time.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          How long does a typical project take?
+          <i class="fa-solid fa-chevron-down faq-icon"></i>
+        </button>
+        <div class="faq-a">
+          <p>It depends on the scope of the job. A single room typically wraps up in one day; a full interior repaint runs 3–5 days. Exterior jobs generally take 2–5 days depending on home size and the prep required. You'll receive a clear timeline in your written estimate so you always know what to expect.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Do I need to be home while the work is being done?
+          <i class="fa-solid fa-chevron-down faq-icon"></i>
+        </button>
+        <div class="faq-a">
+          <p>You don't need to be home the entire time, but we do ask that someone is available for the initial walkthrough and the final inspection. Our crew is background-checked and professional — you can trust who's on your property. We'll keep you updated throughout the job so there are never any surprises.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          What should I do to prepare before your crew arrives?
+          <i class="fa-solid fa-chevron-down faq-icon"></i>
+        </button>
+        <div class="faq-a">
+          <p>For interior jobs: move small décor, valuables, and fragile items away from walls — we handle furniture positioning and all masking. For exterior jobs: ensure clear access around the perimeter of the home and move any vehicles from the driveway. We take care of all surface prep, masking, and cleanup — just sit back and let us work.</p>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -1527,43 +2447,67 @@
 <section id="contact">
   <div class="contact-layout">
     <div class="contact-info">
-      <div class="section-tag">Get In Touch</div>
-      <h2 class="section-heading light">Ready to Start Your Project?</h2>
-      <p style="color:rgba(255,255,255,.6);font-size:.95rem;line-height:1.75;margin-top:14px;">Fill out the form and we'll get back to you within one business day — usually the same day. No obligation, no pressure.</p>
-      <div class="contact-detail-list">
-        <div class="c-row">
-          <div class="c-icon">&#128222;</div>
-          <div>
-            <div class="c-label">Phone</div>
-            <div class="c-value"><a href="tel:+13215550100">(321) 555-0100</a></div>
+      <div class="section-tag">Free Quote &amp; Contact</div>
+      <h2 class="section-heading light">Let's Talk About Your Project</h2>
+      <p style="color:rgba(255,255,255,.6);font-size:.95rem;line-height:1.75;margin-top:14px;">Fill out the form for a free estimate — or reach out directly to Seth or Lizzy below. No obligation, no pressure.</p>
+
+      <div class="contact-persons">
+        <div class="contact-person-card">
+          <div class="cp-header">
+            <div>
+              <div class="cp-name">Seth</div>
+              <div class="cp-role">Owner &amp; Lead Painter</div>
+            </div>
+            <span class="cp-badge cp-badge-direct">Direct Line</span>
+          </div>
+          <p class="cp-desc">For direct communication, project walk-throughs, and personalized pricing — reach Seth himself.</p>
+          <div class="cp-contacts">
+            <a href="tel:+13045793226" class="cp-link"><i class="fa-solid fa-phone"></i>&nbsp; (304) 579-3226</a>
+            <a href="mailto:Sethpaintsamerica@gmail.com" class="cp-link"><i class="fa-solid fa-envelope"></i>&nbsp; Sethpaintsamerica@gmail.com</a>
           </div>
         </div>
-        <div class="c-row">
-          <div class="c-icon">&#128231;</div>
-          <div>
-            <div class="c-label">Email</div>
-            <div class="c-value"><a href="mailto:info@sethpaintingco.com">info@sethpaintingco.com</a></div>
+        <div class="contact-person-card lizzy-card">
+          <div class="cp-header">
+            <div>
+              <div class="cp-name">Lizzy</div>
+              <div class="cp-role">Receptionist</div>
+            </div>
+            <span class="cp-badge cp-badge-general">General</span>
+          </div>
+          <p class="cp-desc">For color selection help, scheduling, and payment questions — Lizzy handles all general inquiries.</p>
+          <div class="cp-contacts">
+            <a href="tel:+13219146336" class="cp-link"><i class="fa-solid fa-phone"></i>&nbsp; (321) 914-6336</a>
           </div>
         </div>
+      </div>
+
+      <div class="contact-detail-list" style="margin-top:24px;">
         <div class="c-row">
-          <div class="c-icon">&#128205;</div>
+          <div class="c-icon"><i class="fa-solid fa-location-dot"></i></div>
           <div>
             <div class="c-label">Service Area</div>
             <div class="c-value">All of Brevard County, FL</div>
           </div>
         </div>
         <div class="c-row">
-          <div class="c-icon">&#128337;</div>
+          <div class="c-icon"><i class="fa-regular fa-clock"></i></div>
           <div>
             <div class="c-label">Hours</div>
             <div class="c-value">Mon–Fri 7am–6pm &nbsp;|&nbsp; Sat 8am–3pm</div>
+          </div>
+        </div>
+        <div class="c-row">
+          <div class="c-icon" style="background:rgba(0,179,71,.18);border-color:rgba(0,179,71,.35);color:#5dce8a;"><i class="fa-solid fa-house"></i></div>
+          <div>
+            <div class="c-label">Nextdoor</div>
+            <div class="c-value"><a href="https://nextdoor.com/pages/seth-co-fuller-finishes-indialantic-fl/" target="_blank" rel="noopener">Seth Co — Fuller Finishes</a></div>
           </div>
         </div>
       </div>
     </div>
     <div class="quote-form">
       <h3>Get Your Free Estimate</h3>
-      <p class="form-note">No obligation. We'll reach out to schedule a convenient time.</p>
+      <p class="form-note">No obligation. Lizzy will follow up within one business day to schedule your estimate.</p>
       <div class="f-row">
         <div class="f-group">
           <label>First Name</label>
@@ -1588,19 +2532,39 @@
         <label>Service Needed</label>
         <select>
           <option value="">Select a service…</option>
-          <option>Interior Painting</option>
-          <option>Exterior Painting</option>
-          <option>Commercial Painting</option>
-          <option>Pressure Washing</option>
-          <option>Deck &amp; Fence Staining</option>
-          <option>Cabinet Refinishing</option>
+          <option>Interior Painting &amp; Repainting</option>
+          <option>Exterior Painting &amp; Staining</option>
+          <option>Pressure Washing &amp; Surface Prep</option>
+          <option>Stucco Repair &amp; Finishing</option>
+          <option>Commercial &amp; Plaza Repaint</option>
+          <option>Popcorn Ceiling Removal</option>
+          <option>Mold Abatement</option>
+          <option>Full Renovation &amp; Handyman</option>
           <option>Multiple Services</option>
           <option>Not Sure — Need Advice</option>
         </select>
       </div>
       <div class="f-group">
-        <label>City / Area</label>
-        <input type="text" placeholder="e.g. Melbourne, Cocoa Beach…" />
+        <label>Street Address</label>
+        <input type="text" placeholder="123 Main St" autocomplete="street-address" />
+      </div>
+      <div class="f-group">
+        <label>Unit / Apt # <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:.85em;color:var(--mid);">(optional)</span></label>
+        <input type="text" placeholder="Apt 4B, Suite 200…" autocomplete="address-line2" />
+      </div>
+      <div class="f-addr-row" style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;margin-bottom:16px;">
+        <div class="f-group" style="margin-bottom:0;">
+          <label>City</label>
+          <input type="text" placeholder="Melbourne" autocomplete="address-level2" />
+        </div>
+        <div class="f-group" style="margin-bottom:0;">
+          <label>State</label>
+          <input type="text" placeholder="FL" maxlength="2" autocomplete="address-level1" />
+        </div>
+        <div class="f-group" style="margin-bottom:0;">
+          <label>Zip Code</label>
+          <input type="text" placeholder="32901" maxlength="10" autocomplete="postal-code" inputmode="numeric" />
+        </div>
       </div>
       <div class="f-group">
         <label>Project Details (optional)</label>
@@ -1615,28 +2579,32 @@
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <a class="logo" href="#">
-        <div class="logo-mark">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M3 17l4-12 3 8 3-5 4 9" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="logo-text">
-          Seth Painting Co.
-          <small>Brevard County, FL</small>
-        </div>
+      <a href="#">
+        <img src="images/Image.png" alt="Seth Co — Fuller Finishes" class="footer-logo-img" />
       </a>
-      <p>Brevard County's trusted painting contractor. Locally owned, locally operated — delivering quality craftsmanship and honest service on every single job.</p>
+      <p>Seth Co — Fuller Finishes. Brevard County's trusted painting contractor. Locally owned, locally operated — delivering quality craftsmanship and honest service on every single job.</p>
+      <div class="footer-contact">
+        <div class="footer-contact-person">
+          <strong>Seth</strong> — Owner &amp; Lead Painter<br>
+          <a href="tel:+13045793226">(304) 579-3226</a> &nbsp;&middot;&nbsp; <a href="mailto:Sethpaintsamerica@gmail.com">Sethpaintsamerica@gmail.com</a>
+        </div>
+        <div class="footer-contact-person">
+          <strong>Lizzy</strong> — Receptionist (scheduling, colors &amp; payments)<br>
+          <a href="tel:+13219146336">(321) 914-6336</a>
+        </div>
+      </div>
     </div>
     <div class="f-col">
       <h4>Services</h4>
       <ul>
-        <li><a href="#services">Interior Painting</a></li>
-        <li><a href="#services">Exterior Painting</a></li>
-        <li><a href="#services">Commercial Painting</a></li>
-        <li><a href="#services">Pressure Washing</a></li>
-        <li><a href="#services">Deck &amp; Fence Staining</a></li>
-        <li><a href="#services">Cabinet Refinishing</a></li>
+        <li><a href="#services">Exterior &amp; Interior Painting</a></li>
+        <li><a href="#services">Cabinet &amp; Door Painting</a></li>
+        <li><a href="#services">Deck, Wood &amp; Siding Painting</a></li>
+        <li><a href="#services">Wood Staining</a></li>
+        <li><a href="#services">Drywall Repair &amp; Painting</a></li>
+        <li><a href="#services">Roof &amp; Metal Painting</a></li>
+        <li><a href="#services">Wallpaper Removal</a></li>
+        <li><a href="#services">Water Damage Repair</a></li>
       </ul>
     </div>
     <div class="f-col">
@@ -1644,8 +2612,10 @@
       <ul>
         <li><a href="#about">About Us</a></li>
         <li><a href="#process">Our Process</a></li>
+        <li><a href="#gallery">Gallery</a></li>
         <li><a href="#testimonials">Reviews</a></li>
         <li><a href="#contact">Free Estimate</a></li>
+        <li><a href="https://nextdoor.com/pages/seth-co-fuller-finishes-indialantic-fl/" target="_blank" rel="noopener">Nextdoor</a></li>
       </ul>
       <h4 style="margin-top:22px">Cities We Serve</h4>
       <ul>
@@ -1658,7 +2628,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>&copy; 2026 Seth Painting Co. &mdash; All rights reserved. Brevard County, FL.</span>
+    <span>&copy; 2026 Seth Co &mdash; Fuller Finishes. All rights reserved. Brevard County, FL.</span>
     <div class="footer-badges">
       <span class="f-badge">Licensed</span>
       <span class="f-badge">Insured</span>
@@ -1684,6 +2654,63 @@
       hamburger.setAttribute('aria-expanded', 'false');
     });
   });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => {
+        el.classList.remove('open');
+        el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // Gallery filters
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      galleryItems.forEach(item => {
+        item.classList.toggle('hidden', filter !== 'all' && item.dataset.cat !== filter);
+      });
+    });
+  });
+
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  galleryItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const img = item.querySelector('img');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightboxCaption.textContent = item.dataset.title || '';
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 </script>
 </body>
 </html>
